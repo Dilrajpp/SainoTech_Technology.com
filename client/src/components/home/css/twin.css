@@ -1,0 +1,615 @@
+
+.banner {
+    background-color: rgb(2, 169, 241);
+    width: 99.90%;
+    height: 790px;
+}
+
+.hed {
+    /* background-color: rgb(131, 216, 252); */
+    /* width: 100%; */
+    height: 60px;
+}
+
+.hed1 {
+    /* margin-top: 1rem; */
+    margin-left: 1.2rem;
+    float: left;
+    /* background-attachment: fixed; */
+    width: 50px;
+    background:none;
+    padding-bottom: 10px;
+}
+
+.hed2 {
+    float: left;
+    margin-left: 30px;
+    -webkit-text-stroke-width: 0%;
+}
+
+.hed3 {
+    float: end;
+    margin-left: 25px;
+}
+
+
+/* .welcome-page {
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 80%;
+    height: 260px;
+    background-color: rgb(2, 169, 241);
+    border: black;
+} */
+
+.welcome-page {
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 96%;
+    height: 410px;
+}
+
+
+.welcome-page1 {
+    /* margin-left: 70px; */
+    text-align: left;
+    margin: 8px;
+    width: 500px;
+    height: 250px;
+    background-color: rgb(2, 169, 241);
+    float: left;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+
+.get-website {
+    /* margin-left: 70px; */
+    text-align:center;
+    margin: 8px;
+    width: 500px;
+    height: 363px;
+    float: left;
+    margin-left: 150px;
+
+}
+
+.web-running {
+    width: 300px;
+    text-align: center;
+}
+
+.Cardagent {
+    --bs-columns: 4;
+    margin-left: 50px;
+    height: 351;
+
+}
+
+
+.card1 {
+    margin-left: 187px;
+    
+}
+
+.card1A {
+    background-color: rgb(76, 192, 241);
+    width: 238px;
+    height: 241px;
+    margin-left: 20px;
+    border: 0cqmax;
+}
+
+
+.card1B {
+    width: 230px;
+    height: 230px;
+}
+
+
+.card1Ac {
+    background-color: rgb(76, 192, 241);
+    width: 238px;
+    height: 300px;
+    margin-left: 20px;
+    border: 0cqmax;
+}
+
+
+.card1Bc {
+    width: 230px;
+    height: 280px;
+}
+
+
+.rupya {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-left: 82px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(178, 237, 237);
+}
+
+.day07 {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-left: 82px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(178, 237, 237);
+}
+
+
+.hosting {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-left: 82px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(178, 237, 237);
+}
+
+
+.Quick-call {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-left: 82px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(178, 237, 237);
+}
+
+.trans {
+    text-align: center;
+    margin-right: 22px;
+}
+
+.price {
+    margin-left: 1px;
+    color: rgb(201, 214, 219);
+    justify-content: center;
+    /* text-align: center; */
+}
+
+
+.hori {
+    width: 50px;
+    /* color: rgb(2, 169, 241); */
+    justify-content: center;
+    margin-left: 48%;
+    /* size: 20px; */
+    position: relative;
+    /* top: 20px; */
+    border: none;
+    height: 3px;
+    background: rgb(2, 169, 241);
+    /* margin-bottom: 50px;hori-services */
+}
+
+
+                                                /* About Section */
+
+.About-section {
+    /* background-color: blue; */
+    width: 99%;
+    height: 810px;
+}
+
+
+.aboutcard1 {
+    /* background-color: rgb(234, 83, 194); */
+    float: left;
+    width: 450px;
+    height: 785px;
+    margin-left: 20%;
+}
+
+.aboutcard2 {
+    /* background-color: rgb(10, 169, 63); */
+    width: 450px;
+    margin-left: 30px;
+    height: 785px;
+    float: left;
+    border: 2cap;
+    box-shadow: 0cqmax;
+}
+
+.aboutimg {
+    /* position: absolute; */
+    width: 425px;
+
+}
+
+.aboutimg1 {
+    width: 445px;
+    height: 270px;
+    
+
+}
+
+.bi-check-circle {
+    color: rgb(2, 169, 241);
+}
+
+.client-img1 {
+    width: 180px;
+    height: 180px;
+    
+}
+
+
+                                        /* Our_Clients */
+
+.client-hand {
+    /* background-color: rgb(255, 255, 255); */
+    /* background-color: aqua; */
+    width: 80%;
+    height: 400px;
+    margin-left: 15%;
+    text-align: center;
+    margin-top: 100px;
+    
+}
+
+.client-hand-img {
+    width: 500px;
+    height: 335px;
+    /* background-color: blue; */
+    float: left;
+}
+
+
+.client-hand-img-t {
+    width: 500px;
+    height: 420px;
+    /* background-color: blueviolet; */
+    float: left;
+}
+
+
+                                    /* services */
+.services {
+    background-color: rgb(231, 236, 243);
+    width: 100%;
+    height: 755px;
+    /* text-align: center; */
+    /* justify-content: center; */
+    
+}
+
+
+.services1 {
+    width: 61%;
+    height: 745px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 21%;
+
+}
+
+.Our-Services {
+    /* margin-top: 100px; */
+    padding-top: 30px;
+}
+
+.services-cards {
+    width: 280px;
+    height: 280px;
+    /* margin-left: 0%; */
+}
+
+.services-icon {
+    width: 50px;
+    height: 50px;
+}
+
+
+.hori-services1 {
+    width: 169px;
+    position: relative;
+    border: none;
+    height: 3px;
+    background: rgb(138, 147, 151);
+}
+
+.hori-services2 {
+    width: 197px;
+    position: relative;
+    border: none;
+    height: 3px;
+    background: rgb(138, 147, 151);
+}
+
+.hori-services3 {
+    width: 136px;
+    position: relative;
+    border: none;
+    height: 3px;
+    background: rgb(138, 147, 151);
+}
+
+.hori-services5 {
+    width: 78px;
+    position: relative;
+    border: none;
+    height: 3px;
+    background: rgb(138, 147, 151);
+
+}
+
+
+
+
+
+                                /* Testimonials */
+.Virat-img {
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+
+.Virat-name {
+    /* float: left; */
+}
+
+                            /* Testimonials */
+.Testimonials {
+    /* background-color: rgb(25, 125, 225); */
+    
+    width: 100%;
+    height: 490px;
+}
+
+.Testimonials1 {
+    width: 65%;
+    height: 480px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 12%;
+    /* background-color: aqua; */
+}
+
+.Testimonials-cards {
+    width: 300px;
+    height: 315px;
+    /* text-align: justify; */
+    /* margin-left: 20px; */
+    
+}
+
+
+.quarter {
+    size: 20px;
+}
+
+
+
+
+
+                            /* Portfolio */
+.Portfolio {
+    background-color: rgb(242, 248, 254);
+    width: 100%;
+    height: 1000px;
+}
+
+.Portfolio1 {
+    width: 65%;
+    height: 985px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 18%;
+    /* background-color: blueviolet; */
+}
+
+
+                            /* Our-team */
+.Our-team {
+    /* background-color: rgb(249, 252, 255); */
+    width: 100%;
+    height: 480px;
+}
+
+
+.Our-team1 {
+    width: 57%;
+    height: 475px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 22%;
+}
+
+.dilraj-img {
+    width: 234px;
+    height: 233px;
+    float: left;
+}
+
+                            /* Pricing */
+.Pricing {
+    background-color: rgb(236, 246, 251);
+    width: 100%;
+    height: 1010px;
+}
+
+
+.Pricing1 {
+    width: 63%;
+    height: 1000px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 18%;
+}
+
+.Pricing-cards {
+    width: 311px;
+    height: 850px;
+}
+
+.pricing-img {
+    width: 80px;
+    height: 80px;
+    margin-left: 110px;
+    text-align: center;
+    /* float: left; */
+}
+
+
+.pricing-img3 {
+    width: 60px;
+    height: 60px;
+    /* font-size: 10px; */
+    margin-left: 110px;
+    text-align: center;
+    /* float: left; */
+    background-color: blueviolet;
+}
+
+
+.INR1 {
+    float:inline-start;
+    width: 50px;
+    color: rgb(241, 64, 173);
+
+}
+
+.INR2 {
+    float: left;
+    width: 90px;
+    color: rgb(241, 64, 173);
+}
+
+.INR2c {
+    float: left;
+    width: 120px;
+    color: rgb(241, 64, 173);
+    /* background-color: blue; */
+}
+
+.INR3c {
+    /* background-color: blueviolet; */
+    /* float: inline-end; */
+    width: 60px;
+    /* margin-right: px; */
+    color: rgb(114, 113, 113);
+}
+
+.INR3 {
+    /* background-color: blueviolet; */
+    /* float: inline-end; */
+    width: 60px;
+    /* margin-right: px; */
+    color: rgb(114, 113, 113);
+}
+
+.INR4 {
+    float: inline-start;
+    /* width: 100px; */
+    /* margin-right: 68px; */
+    color: rgb(114, 113, 113);
+}
+
+
+
+
+
+
+                        /* Contact */
+.Contact {
+    width: 100%;
+    height: 550px;
+    /* background-color: blueviolet; */
+}
+
+.Contact1 {
+    width: 90%;
+    height: 475px;
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left: 9%;
+}
+
+.Contact-cards {
+        width: 80%;
+        height: 410px;
+        margin-left: 100px;
+
+}
+
+.location {
+    width: 400px;
+    float: inline-start;
+    height: 400px;
+    background-color: rgb(2, 169, 241);
+}
+
+.send-message {
+    width: 693px;
+    float: inline-end;
+    height: 400px;;
+}
+
+
+.location-icon {
+    background-color: rgb(158, 216, 255);
+    /* color: white; */
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+}
+
+
+.location-icon1 {
+    /* background-color: rgb(154, 210, 248); */
+    /* color: white; */
+    width: 18px;
+    height: 18px;
+    /* float: left; */
+}
+
+
+.locatA {
+    margin-top: 10px;
+    margin-left: 22px;
+    width: 360px;
+    height: 130px;
+    background-color: rgb(89, 188, 254);
+}
+
+
+.locatA1 {
+    margin-left: 40px;
+    padding-left: 20px;
+    /* width: 300px; */
+    /* height: 200px; */
+}
+
+.locatA2 {
+    margin-left: 40px;
+    padding-left: 20px;
+    /* width: 300px; */
+    /* height: 200px; */
+}
+
+
+.locatB {
+    margin-top: 10px;
+    margin-left: 22px;
+    width: 360px;
+    height: 70px;
+    background-color: rgb(108, 195, 253);
+}
+
+
+
+                                    /* Footer */
+.Footer {
+    width: 100%;
+    height: 500px;
+}
