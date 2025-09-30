@@ -123,8 +123,8 @@ const About = () => {
                     <img className="client-hand-img ms-5 border rounded" src="https://hygger.io/wp-content/uploads/2020/07/8-1.png" alt="" />
                     <div className="client-hand-img-t">
                         <div><h1 className="text-info"><b>245</b></h1><b className="text-info">Happy Clients</b><small className="text-secondary"> with quick & responsible services</small></div><hr className="w-75 ms-5 ps-5 hori"/>
-                        <div><h1 className="text-info"><b>245</b></h1><b className="text-info">Happy Clients</b><small className="text-secondary"> with quick & responsible services</small></div><hr className="w-75 ms-5 ps-5 hori"/>
-                        <div><h1 className="text-info"><b>245</b></h1><b className="text-info">Happy Clients</b><small className="text-secondary"> with quick & responsible services</small></div><hr className="w-75 ms-5 ps-5 hori"/>
+                        <div><h1 className="text-info"><b>554</b></h1><b className="text-info">Happy Clients</b><small className="text-secondary"> with quick & responsible services</small></div><hr className="w-75 ms-5 ps-5 hori"/>
+                        <div><h1 className="text-info"><b>621</b></h1><b className="text-info">Happy Clients</b><small className="text-secondary"> with quick & responsible services</small></div><hr className="w-75 ms-5 ps-5 hori"/>
                     </div>
                 </div>
             </section> 
