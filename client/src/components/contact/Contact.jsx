@@ -1,11 +1,95 @@
-import React from "react";
+// import React from "react";
+import axios from "axios";
+import React, { useState } from 'react';
 
 
 const Contact = () => {
+
+ const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    number: '',   // <- use `number` to match backend
+    message: ''
+  });
+  const [status, setStatus] = useState({ loading: false, ok: null, message: '' });
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData(prev => ({ ...prev, [name]: value }));
+//   };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const validate = () => {
+    // basic client-side checks
+    if (!formData.name || !formData.email || !formData.number || !formData.message) {
+      setStatus({ loading:false, ok:false, message: 'All fields are required.' });
+      return false;
+    }
+    if (formData.number.length !== 10) {
+      setStatus({ loading: false, ok: false, message: "Phone number must be 10 digits" });
+    // if (!/^\d{10}$/.test(formData.number)) {
+    //   setStatus({ loading:false, ok:false, message: 'Phone number must be exactly 10 digits.' });
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ loading:false, ok:null, message: '' });
+
+    if (!validate()) return;
+
+    try {
+      setStatus({ loading:true, ok:null, message: 'Sending...' });
+
+
+    const res = await axios.post("http://localhost:5000/api/contact",
+        // {
+        // name: formData.name,
+        // email: formData.email,
+        // number: formData.number,
+        // message: formData.message,
+        // },
+        formData,
+        {
+        headers: { "Content-Type": "application/json" }
+        }
+    );
+
+      const data =  res.data;
+      console.log("Backend Response:", data);
+
+      if (data.error) {
+        // show server error message if any
+        setStatus({ loading:false, ok:false, message: data.error || 'Server error' });
+        return;
+      }
+
+      // success
+      setStatus({ loading:false, ok:true, message: 'Message sent — thank you!' });
+      setFormData({ name:'', email:'', number:'', message:'' });
+
+      console.log("Backend Response:", data);
+    } catch (err) {
+      console.error('Axios error:', err);
+      setStatus({ loading:false, ok:false, message: 'Network error — try again.' });
+    }
+  };
+
+
+
+
     return (
         <>
                                                 {/* Contact*/}
-            <div className="Contact">
+            <div className="Contact mt-3">
                 <div className="Contact1">
                     <h3 className="text-center Our-Services">Contact</h3>
                     <hr className='hori' />
@@ -58,11 +142,11 @@ const Contact = () => {
                         </div>
 
                         
-                        <div className="bg-light border send-message">
+                        {/* <div className="bg-light border send-message">
                             <div class="input-group mt-2 mb-3">
                                 <input type="text" class="form-control mt-3 ms-5" placeholder="Your Name" aria-label="Recipient's username" aria-describedby="button-addon2"/>
                                 <input type="text" class="form-control mt-3 ms-3 me-2" placeholder="Your Email" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                                {/* <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button> */}
+                                {/* <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button> *f/}
                             </div>
                             <div class="input-group mt-2 mb-3">
                                 <input type="text" class="form-control mt-3 ms-5 me-2" placeholder="Youe Phone Number" aria-label="Recipient's username" aria-describedby="button-addon2"/>
@@ -75,7 +159,77 @@ const Contact = () => {
                                 <button class="btn btn-outline-secondaryNNNNNN text-center mt-1 ms-5 bg-info text-white" type="button" id="button-addon2">Send Message</button>
                             </div>
                             </div>
+                        </div> */}
+
+                        <div className="bg-light border send-message">
+                        <form onSubmit={handleSubmit}>
+                            <div className='mb-1 input-group mt-2 mb-3'>
+                                <label className='float-start ms-5 ps-2 text-success' htmlFor="name">Enter Your Name</label>
+                                <input
+                                    type="text"
+                                    className="form-control ms-5 pe-1"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='mb-1 input-group mt-2'>
+                                <label className='float-start ms-5 ps-2 text-success' htmlFor="exampleInputEmail1">Enter Email address</label>
+                                <input
+                                    type="email"
+                                    className="form-control ms-4 ps-2 pe-2"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='mb-1 mt-2'>
+                                <label className='float-start ms-5 ps-2 text-success pe-2' htmlFor="phone">Enter 10 Digit Phone Number</label>
+                                <input
+                                    type="tel"
+                                    className="form-control ms-2 w-50"
+                                    id="number"
+                                    name="number"
+                                    // placeholder="Enter 10 digit phone number"
+                                    maxLength="10"
+                                    pattern="\d{10}"
+                                    value={formData.number}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='mb-1 input-group mt-2 mb-3 w-75 ms-5'>
+                                <label className='float-start ps-2 text-success me-5 pe-3' htmlFor="message">Message</label>
+                                <input
+                                    type="text"
+                                    className="form-control w-50 ms-5 ps-4"
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <button className='mt-3 bg-info ms-5 w-75 ps-2 border rounded text-light'
+                            type="submit"
+                            disabled={status.loading}
+                            >
+                                {status.loading ? 'sending...' : 'Submit'}
+                            </button>
+                            <div style={{ marginTop: 8, marginLeft: 20 }}>
+                                {status.ok === true && <div style={{color:'green'}}>{status.message}</div>}
+                                {status.ok === false && <div style={{color:'red'}}>{status.message}</div>}
+                            </div>
+                            {/* button some changes and under button added new div */}
+                        </form>
                         </div>
+
+
                     </div>
                 </div>
             </div>

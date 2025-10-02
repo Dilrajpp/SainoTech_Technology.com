@@ -5,6 +5,7 @@ const router = express.Router();
 
 // save contact form data
 router.post("/", async (req, res) => {
+    console.log("Form Data Received:", req.body);
     try {
         const { name, email, number, message } = req.body;
 
@@ -13,11 +14,14 @@ router.post("/", async (req, res) => {
         }
 
         const newContact = new Contact({ name, email, number, message });
-        await newContact.save();
+        const saved = await newContact.save();
+        console.log('Saved contact:', saved);
+        
 
-        res.status(201).json({ success: true, data: newContact });
+        res.status(201).json({ success: true, data: saved });
     } catch (err) {
-        res.status(500).json({ error: "Server error" });
+        console.error("Error saving contact:", err);
+        res.status(500).json({ error: err.message || "Server error" });
     }
 });
 

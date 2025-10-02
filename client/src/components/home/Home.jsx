@@ -7,6 +7,7 @@ import Contact from '../contact/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 import '../home/css/twin.css';
+import axios from "axios";
 // import  'bootstrap-icons-react';
 // import { Facebook, Twitter, Instagram, Broadcast, Eyeglasses } from 'bootstrap-icons-react';
 
@@ -16,31 +17,122 @@ import '../home/css/twin.css';
 import React, { useState } from 'react';
 
 const Home = () => {
-  const [formData, setFormData] = useState({
+            // New code
+ const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: ''
+    number: '',   // <- use `number` to match backend
+    message: ''
   });
+  const [status, setStatus] = useState({ loading: false, ok: null, message: '' });
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData(prev => ({ ...prev, [name]: value }));
+//   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const validate = () => {
+    // basic client-side checks
+    if (!formData.name || !formData.email || !formData.number || !formData.message) {
+      setStatus({ loading:false, ok:false, message: 'All fields are required.' });
+      return false;
+    }
+    if (formData.number.length !== 10) {
+      setStatus({ loading: false, ok: false, message: "Phone number must be 10 digits" });
+    // if (!/^\d{10}$/.test(formData.number)) {
+    //   setStatus({ loading:false, ok:false, message: 'Phone number must be exactly 10 digits.' });
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can perform further actions here, like sending the data to a server
-    console.log(formData);
+    setStatus({ loading:false, ok:null, message: '' });
+
+    if (!validate()) return;
+
+    try {
+      setStatus({ loading:true, ok:null, message: 'Sending...' });
+
+    //   const res = await axios.post('http://localhost:5000/api/contact',
+    //     formData, //changes host form data
+    //     {
+    //     // method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     // body: JSON.stringify(formData)
+    //   });
+
+    const res = await axios.post("http://localhost:5000/api/contact",
+        {
+        name: formData.name,
+        email: formData.email,
+        number: formData.number,
+        message: formData.message,
+        },
+        {
+        headers: { "Content-Type": "application/json" }
+        }
+    );
+
+      const data =  res.data;
+      console.log("Backend Response:", data);
+
+      if (data.error) {
+        // show server error message if any
+        setStatus({ loading:false, ok:false, message: data.error || 'Server error' });
+        return;
+      }
+
+      // success
+      setStatus({ loading:false, ok:true, message: 'Message sent — thank you!' });
+      setFormData({ name:'', email:'', number:'', message:'' });
+
+      console.log("Backend Response:", data);
+    } catch (err) {
+      console.error('Axios error:', err);
+      setStatus({ loading:false, ok:false, message: 'Network error — try again.' });
+    }
   };
 
 
+
+            // previous
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     // phone: ''
+//     number: '', //1st changes
+//     message: '' //2nd changes
+//   });
+
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData({
+//       ...formData,
+//       [name]: value
+//     });
+//   };
+
+
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // You can perform further actions here, like sending the data to a server
+//     console.log(formData);
+//   };
+
+
 // const Home = () => {
-
-
-    
+   
     return (
         <>
             
@@ -61,7 +153,7 @@ const Home = () => {
                                 <label className='float-start ms-5 ps-2 text-success' htmlFor="name">Enter Your Name</label>
                                 <input
                                     type="text"
-                                    class="form-control ms-5 text-info"
+                                    className="form-control ms-5 text-info"
                                     id="name"
                                     name="name"
                                     value={formData.name}
@@ -73,7 +165,7 @@ const Home = () => {
                                 <label className='float-start ms-5 ps-2 text-success' htmlFor="exampleInputEmail1">Enter Email address</label>
                                 <input
                                     type="email"
-                                    class="form-control ms-5 text-info"
+                                    className="form-control ms-5 text-info"
                                     id="exampleInputEmail1"
                                     aria-describedby="emailHelp"
                                     name="email"
@@ -86,10 +178,13 @@ const Home = () => {
                                 <label className='float-start ms-5 ps-2 text-success' htmlFor="phone">Enter 10 Digit Phone Number</label>
                                 <input
                                     type="tel"
-                                    class="form-control ms-5 text-info"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
+                                    className="form-control ms-5 text-info"
+                                    id="number"
+                                    name="number"
+                                    // placeholder="Enter 10 digit phone number"
+                                    maxLength="10"
+                                    pattern="\d{10}"
+                                    value={formData.number}
                                     onChange={handleChange}
                                     required
                                 />
@@ -98,7 +193,7 @@ const Home = () => {
                                 <label className='float-start ms-5 ps-2 text-success' htmlFor="message">Message</label>
                                 <input
                                     type="text"
-                                    class="form-control ms-5 text-info"
+                                    className="form-control ms-5 text-info"
                                     id="message"
                                     name="message"
                                     value={formData.message}
@@ -106,7 +201,17 @@ const Home = () => {
                                     required
                                 />
                             </div>
-                            <button className='mt-2 bg-info ms-5 w-100 border rounded text-light' type="submit">Submit</button>
+                            <button className='mt-2 bg-info ms-5 w-100 border rounded text-light'
+                            type="submit"
+                            disabled={status.loading}
+                            >
+                                {status.loading ? 'sending...' : 'Submit'}
+                            </button>
+                            <div style={{ marginTop: 8, marginLeft: 20 }}>
+                                {status.ok === true && <div style={{color:'green'}}>{status.message}</div>}
+                                {status.ok === false && <div style={{color:'red'}}>{status.message}</div>}
+                            </div>
+                            {/* button some changes and under button added new div */}
                         </form>
                     </div>
                 </div>
