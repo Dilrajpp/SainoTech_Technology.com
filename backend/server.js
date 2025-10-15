@@ -4,9 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import contactRoutes from "./routes/route.Contact.js";
 
-
 dotenv.config();
-
 
 const app = express();
 
@@ -14,7 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // form-data parse karega
-
 
 // Routes
 app.use("/api/contact", contactRoutes);
